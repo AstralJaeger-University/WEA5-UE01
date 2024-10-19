@@ -1,10 +1,16 @@
 
 @defer {
   <h1>Welcome BookShop</h1>
-  <app-book-list></app-book-list>
+  @if(listOn) {
+    <app-book-list (showDetailsEvent)="showDetails($event)"/>
+  }
+
+  @if (detailsOn) {
+    <app-book-details (showListEvent)="showList()" [book]="book"></app-book-details>
+  }
 }
 
-@placeholder (minimum 1s) {
+@placeholder (minimum 0.1s) {
   <div class="ui active inverted dimmer">
     <div class="ui text loader large"> Loading BookShop...</div>
   </div>

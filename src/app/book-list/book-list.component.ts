@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Book} from '../book';
 import {NgClass, NgFor, NgIf} from '@angular/common';
 import {BookListDetailsComponent} from '../book-list-details/book-list-details.component';
+import {empty} from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
@@ -13,6 +14,8 @@ import {BookListDetailsComponent} from '../book-list-details/book-list-details.c
 export class BookListComponent {
 
   books: Book[] = [];
+
+  @Output() showDetailsEvent = new EventEmitter();
 
   ngOnInit() {
     this.books = [
@@ -185,5 +188,11 @@ export class BookListComponent {
         'Himmelhorn_Kluftingers_ neuer_Fall.jpg'
       )
     ];
+  }
+
+
+  public showDetails = (book: Book) => {
+    console.log(book);
+    this.showDetailsEvent.emit(book);
   }
 }
