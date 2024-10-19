@@ -2,7 +2,6 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {Book} from '../book';
 import {NgClass, NgFor, NgIf} from '@angular/common';
 import {BookListDetailsComponent} from '../book-list-details/book-list-details.component';
-import {empty} from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
