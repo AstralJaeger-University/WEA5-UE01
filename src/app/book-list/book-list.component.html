@@ -1,0 +1,7 @@
+<div class="ui middle aligned selection divided list">
+  @for(book of books; track book.id) {
+    <a class="item">
+      <app-book-list-details [book]="book"></app-book-list-details>
+    </a>
+  }
+</div>
